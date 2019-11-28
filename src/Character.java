@@ -1,5 +1,6 @@
 public class Character {
 
+
 	private int level;
 	private int life;
 	private int strength;
@@ -22,4 +23,20 @@ public class Character {
 		this.intelligence = intelligence;
 	}
 
+
+	public int getLevel() {
+		return level;
+	}
+	public int getLife() {
+		return life;
+	}
+	public int getStrength() {
+		return strength;
+	}
+	public int getAgility() {
+		return agility;
+	}
+	public int getIntelligence() {
+		return intelligence;
+	}
 }
