@@ -1,9 +1,13 @@
-public class Warrior extends Character {
+public class Warrior extends AbstractCharacter {
 
 
-    public Warrior(int level, int life, int strength, int agility, int intelligence) {
-        super(level, life, strength, agility, intelligence);
-        System.out.println("Woarg je suis le Guerrier " + super.toString());
+    public Warrior(int strength, int agility, int intelligence) {
+        super(strength, agility, intelligence);
+    }
+
+    @Override
+    public String toString() {
+        return "Woarg je suis le Guerrier " + super.toString();
     }
 
 }

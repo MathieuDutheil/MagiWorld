@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Game {
     Scanner sc = new Scanner(System.in);
-    List<Character> player = new ArrayList<>();
+    // List<Character> player = new ArrayList<>();
 
     public void createCharacters() {
 
@@ -13,7 +13,7 @@ public class Game {
         int strenghtCharacter;
         int agilityCharacter;
         int intelligenceCharacter;
-        int lifeCharacter;
+        //    int lifeCharacter;
         int nbCharacter;
 
         //    try {
@@ -44,7 +44,6 @@ public class Game {
                         System.out.println("Le niveau du personnage doit être compris entre 1 et 100");
                     }
                 } while (levelCharacter < 1 || levelCharacter > 100);
-                lifeCharacter = levelCharacter * 5;
 
 
                 do {
@@ -83,34 +82,34 @@ public class Game {
             switch (nbCharacter) {
                 case 1:
                     if (i == 1) {
-                        Warrior player1 = new Warrior(levelCharacter, lifeCharacter, strenghtCharacter, agilityCharacter, intelligenceCharacter);
-                        /*player1.declareWarrior1();*/
+                        Warrior player1 = new Warrior(strenghtCharacter, agilityCharacter, intelligenceCharacter);
+                        System.out.println(player1);
 
 
                     } else {
-                        Warrior player2 = new Warrior(levelCharacter, lifeCharacter, strenghtCharacter, agilityCharacter, intelligenceCharacter);
-                        /*player2.declareWarrior2();*/
+                        Warrior player2 = new Warrior(strenghtCharacter, agilityCharacter, intelligenceCharacter);
+                        System.out.println(player2);
                     }
                     break;
 
                 case 2:
                     if (i == 1) {
-                        Rogue player1 = new Rogue(levelCharacter, lifeCharacter, strenghtCharacter, agilityCharacter, intelligenceCharacter);
-                        /*player1.declareRogue1();*/
+                        Rogue player1 = new Rogue(strenghtCharacter, agilityCharacter, intelligenceCharacter);
+                        System.out.println(player1);
 
                     } else {
-                        Rogue player2 = new Rogue(levelCharacter, lifeCharacter, strenghtCharacter, agilityCharacter, intelligenceCharacter);
-                        /*player2.declareRogue2();*/
+                        Rogue player2 = new Rogue(strenghtCharacter, agilityCharacter, intelligenceCharacter);
+                        System.out.println(player2);
                     }
                     break;
 
                 case 3:
                     if (i == 1) {
-                        Mage player1 = new Mage(levelCharacter, lifeCharacter, strenghtCharacter, agilityCharacter, intelligenceCharacter);
-                        /*player1.declaremage1();*/
+                        Mage player1 = new Mage(strenghtCharacter, agilityCharacter, intelligenceCharacter);
+                        System.out.println(player1);
                     } else {
-                        Mage player2 = new Mage(levelCharacter, lifeCharacter, strenghtCharacter, agilityCharacter, intelligenceCharacter);
-                        // player2.declareRogue2();
+                        Mage player2 = new Mage(strenghtCharacter, agilityCharacter, intelligenceCharacter);
+                        System.out.println(player2);
                     }
                     break;
 

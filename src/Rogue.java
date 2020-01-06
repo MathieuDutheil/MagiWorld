@@ -1,8 +1,13 @@
-public class Rogue extends Character {
+public class Rogue extends AbstractCharacter {
 
-    public Rogue(int level, int life, int strength, int agility, int intelligence) {
-        super(level, life, strength, agility, intelligence);
-        System.out.println("Mouahahaha je suis le Rôdeur " + super.toString());
+    public Rogue(int strength, int agility, int intelligence) {
+        super(strength, agility, intelligence);
+        System.out.println();
+    }
+
+    @Override
+    public String toString() {
+        return "Mouahahaha je suis le Rôdeur " + super.toString();
     }
 }
 
