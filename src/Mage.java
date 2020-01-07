@@ -2,13 +2,11 @@ public class Mage extends AbstractCharacter {
 
     public Mage(int strength, int agility, int intelligence) {
         super(strength, agility, intelligence);
-    }
-
-    @Override
-    public String toString() {
-        return "Abracadabra je suis le Mage " + super.toString();
+        this.CriDeGuerre = "Abracadabra je suis le Mage ";
     }
 }
+
+
 
 
 

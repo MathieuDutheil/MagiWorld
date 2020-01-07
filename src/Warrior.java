@@ -1,16 +1,17 @@
 public class Warrior extends AbstractCharacter {
 
-
     public Warrior(int strength, int agility, int intelligence) {
         super(strength, agility, intelligence);
+        this.CriDeGuerre = "Woarg je suis le Guerrier ";
     }
+}
 
-    @Override
+   /* @Override
     public String toString() {
         return "Woarg je suis le Guerrier " + super.toString();
-    }
+    }*/
 
-}
+
 
 
 
