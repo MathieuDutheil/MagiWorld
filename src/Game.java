@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
@@ -11,52 +12,55 @@ public class Game {
         int agilityCharacter = 0;
         int intelligenceCharacter = 0;
         //    int lifeCharacter;
-        int nbCharacter;
+        int nbCharacter = 0;
 
         //    try {
 
         for (int i = 1; i < 3; i++) {
 
 
-            System.out.println("Création du personnage du joueur " + i);
-
-            do {
-                System.out.println("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)");
-                nbCharacter = sc.nextInt();
-                if (nbCharacter < 1 || nbCharacter > 3) {
-                    System.out.println("Veuillez choisir parmi les personnages proposés");
-                }
-            } while (nbCharacter < 1 || nbCharacter > 3);
-
-            do {
+                System.out.println("Création du personnage du joueur " + i);
+            try {
+                do {
+                    System.out.println("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)");
+                    nbCharacter = sc.nextInt();
+                    if (nbCharacter < 1 || nbCharacter > 3) {
+                        System.out.println("Veuillez choisir parmi les personnages proposés");
+                    }
+                } while (nbCharacter < 1 || nbCharacter > 3);
+            } catch (InputMismatchException e) {
+                System.out.println("Dodo L'asticot");
+            }
 
                 do {
-                    System.out.println("Niveau du personnage ?");
-                    levelCharacter = sc.nextInt();
-                    if (levelCharacter < 1 || levelCharacter > 100) {
-                        System.out.println("Le niveau du personnage doit être compris entre 1 et 100");
+
+                    do {
+                        System.out.println("Niveau du personnage ?");
+                        levelCharacter = sc.nextInt();
+                        if (levelCharacter < 1 || levelCharacter > 100) {
+                            System.out.println("Le niveau du personnage doit être compris entre 1 et 100, recommencez la saisie.");
+                        }
+                    } while (levelCharacter < 1 || levelCharacter > 100);
+
+
+                    System.out.println("Force du personnage ?");
+                    strenghtCharacter = declareCarac();
+
+                    System.out.println("Agilité du personnage ?");
+                    agilityCharacter = declareCarac();
+
+                    System.out.println("Intelligence du personnage ?");
+                    intelligenceCharacter = declareCarac();
+
+
+                    if (levelCharacter != strenghtCharacter + agilityCharacter + intelligenceCharacter) {
+                        System.out.println("Attention le total force + agilité + intelligence doit être égal au niveau du joueur, recommencez la saisie.");
                     }
-                } while (levelCharacter < 1 || levelCharacter > 100);
+
+                } while (levelCharacter != strenghtCharacter + agilityCharacter + intelligenceCharacter);
+                
 
 
-                System.out.println("Force du personnage ?");
-                strenghtCharacter = declareCarac();
-                System.out.println("force = " + strenghtCharacter);
-
-
-                System.out.println("Agilité du personnage ?");
-                agilityCharacter = declareCarac();
-                System.out.println("agilité = " + agilityCharacter);
-
-                System.out.println("Intelligence du personnage ?");
-                intelligenceCharacter = declareCarac();
-                System.out.println("intelligence = " + intelligenceCharacter);
-
-
-                if (levelCharacter != strenghtCharacter + agilityCharacter + intelligenceCharacter) {
-                    System.out.println("Attention le total force + agilité + intelligence doit être égal au niveau du joueur.");
-                }
-            } while (levelCharacter != strenghtCharacter + agilityCharacter + intelligenceCharacter);
 
 
             switch (nbCharacter) {
@@ -96,13 +100,14 @@ public class Game {
                 default:
                     System.out.println("Vous n'avez pas choisi de classe parmi les choix proposés");
             }
-
-
         }
 
-        //  } catch (InputMismatchException ie) {
-        //     System.out.println("Vous devez saisir un nombre.");
+
     }
+
+    //  } catch (InputMismatchException ie) {
+    //     System.out.println("Vous devez saisir un nombre.");
+
 
 
 

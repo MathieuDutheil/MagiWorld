@@ -5,40 +5,37 @@ abstract class AbstractCharacter {
     private int strength;
     private int agility;
     private int intelligence;
-    private String CriDeGuerre;
-    private String Classe;
-    private String Joueur;
+    private String WarScream;
+    private String Class;
+    private String Player;
     private String Attributes;
     private static int numPlayer = 0;
 
 
-
-
-
     public AbstractCharacter(int strength, int agility, int intelligence) {
-
+    //   if (strength < 0 || strength > 100 || agility < 0 || agility > 100 || intelligence < 0 || intelligence > 100)
+    //   throw
+    //   else {
         numPlayer++;
         this.strength = strength;
         this.agility = agility;
         this.intelligence = intelligence;
         this.level = strength + agility + intelligence;
         this.life = level * 5;
-        this.Joueur = "Joueur " + numPlayer;
-
-
+        this.Player = "Joueur " + numPlayer;
     }
 
     @Override
     public String toString() {
-        return CriDeGuerre + "je suis " + Attributes + " " + Classe + " " + Joueur + " niveau " + level + " je possède " + life + " de vitalité, " + strength + " de force, " + agility + " d'agilité et " + intelligence + " d'intelligence !";
+        return WarScream + " je suis " + Attributes + " " + Class + " " + Player + " niveau " + level + " je possède " + life + " de vitalité, " + strength + " de force, " + agility + " d'agilité et " + intelligence + " d'intelligence !";
     }
 
-    protected void setCriDeGuerre(String criDeGuerre) {
-        CriDeGuerre = criDeGuerre;
+    protected void setWarScream(String warScream) {
+        WarScream = warScream;
     }
 
-    protected void setClasse(String classe) {
-        Classe = classe;
+    protected void setClass(String aClass) {
+        Class = aClass;
     }
 
     protected void setAttributes(String attributes) {

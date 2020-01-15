@@ -2,9 +2,9 @@ public class Mage extends AbstractCharacter {
 
     public Mage(int strength, int agility, int intelligence) {
         super(strength, agility, intelligence);
-        this.setCriDeGuerre("Abracadabra");
+        this.setWarScream("Abracadabra");
         this.setAttributes("le");
-        this.setClasse("Mage");
+        this.setClass("Mage");
 
     }
 }
