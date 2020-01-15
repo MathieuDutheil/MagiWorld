@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -10,9 +7,9 @@ public class Game {
     public void createCharacters() {
 
         int levelCharacter;
-        int strenghtCharacter;
-        int agilityCharacter;
-        int intelligenceCharacter;
+        int strenghtCharacter = 0;
+        int agilityCharacter = 0;
+        int intelligenceCharacter = 0;
         //    int lifeCharacter;
         int nbCharacter;
 
@@ -23,17 +20,13 @@ public class Game {
 
             System.out.println("Création du personnage du joueur " + i);
 
-
             do {
-
                 System.out.println("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)");
                 nbCharacter = sc.nextInt();
                 if (nbCharacter < 1 || nbCharacter > 3) {
                     System.out.println("Veuillez choisir parmi les personnages proposés");
                 }
-
             } while (nbCharacter < 1 || nbCharacter > 3);
-
 
             do {
 
@@ -46,31 +39,18 @@ public class Game {
                 } while (levelCharacter < 1 || levelCharacter > 100);
 
 
-                do {
-                    System.out.println("Force du personnage ?");
-                    strenghtCharacter = sc.nextInt();
-                    if (strenghtCharacter < 0 || strenghtCharacter > 100) {
-                        System.out.println("Attention la force du personnage doit être comprise entre 0 et 100");
-                    }
-                } while (strenghtCharacter < 0 || strenghtCharacter > 100);
+                System.out.println("Force du personnage ?");
+                strenghtCharacter = declareCarac();
+                System.out.println("force = " + strenghtCharacter);
 
 
-                do {
-                    System.out.println("Agilité du personnage ?");
-                    agilityCharacter = sc.nextInt();
-                    if (agilityCharacter < 0 || agilityCharacter > 100) {
-                        System.out.println("Attention l'agilité du personnage doit être comprise entre 0 et 100");
-                    }
-                } while (agilityCharacter < 0 || agilityCharacter > 100);
+                System.out.println("Agilité du personnage ?");
+                agilityCharacter = declareCarac();
+                System.out.println("agilité = " + agilityCharacter);
 
-
-                do {
-                    System.out.println("Intelligence du personnage ?");
-                    intelligenceCharacter = sc.nextInt();
-                    if (intelligenceCharacter < 0 || intelligenceCharacter > 100) {
-                        System.out.println("Attention l'intelligence du personnage doit être comprise entre 0 et 100");
-                    }
-                } while (intelligenceCharacter < 0 || intelligenceCharacter > 100);
+                System.out.println("Intelligence du personnage ?");
+                intelligenceCharacter = declareCarac();
+                System.out.println("intelligence = " + intelligenceCharacter);
 
 
                 if (levelCharacter != strenghtCharacter + agilityCharacter + intelligenceCharacter) {
@@ -131,6 +111,19 @@ public class Game {
 
 
     }*/
+
+    public int declareCarac() {
+
+        int carac;
+        do {
+            carac = sc.nextInt();
+            if (carac < 0 || carac > 100) {
+                System.out.println("Attention cette caractéristique du personnage doit être comprise entre 0 et 100, recommencez la saisie.");
+            }
+        } while (carac < 0 || carac > 100);
+        return carac;
+
+    }
 
 
     public void runGame() {

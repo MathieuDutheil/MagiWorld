@@ -5,9 +5,15 @@ abstract class AbstractCharacter {
     private int strength;
     private int agility;
     private int intelligence;
+    private String CriDeGuerre;
+    private String Classe;
+    private String Joueur;
+    private String Attributes;
     private static int numPlayer = 0;
-    String CriDeGuerre;
-    String Joueur;
+
+
+
+
 
     public AbstractCharacter(int strength, int agility, int intelligence) {
 
@@ -24,28 +30,22 @@ abstract class AbstractCharacter {
 
     @Override
     public String toString() {
-        return CriDeGuerre + Joueur + " niveau " + level + " je possède " + life + " de vitalité, " + strength + " de force, " + agility + " d'agilité et " + intelligence + " d'intelligence !";
+        return CriDeGuerre + "je suis " + Attributes + " " + Classe + " " + Joueur + " niveau " + level + " je possède " + life + " de vitalité, " + strength + " de force, " + agility + " d'agilité et " + intelligence + " d'intelligence !";
+    }
+
+    protected void setCriDeGuerre(String criDeGuerre) {
+        CriDeGuerre = criDeGuerre;
+    }
+
+    protected void setClasse(String classe) {
+        Classe = classe;
+    }
+
+    protected void setAttributes(String attributes) {
+        Attributes = attributes;
     }
 
 }
-
-    /*public int getLevel() {
-        return level;
-    }
-    public int getLife() {
-        return life;
-    }
-    public int getStrength() {
-        return strength;
-    }
-    public int getAgility() {
-        return agility;
-    }
-    public int getIntelligence() {
-        return intelligence;
-    }*/
-
-
 
     /*public void basicAttack() {
 
