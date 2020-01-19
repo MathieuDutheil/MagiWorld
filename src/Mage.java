@@ -5,27 +5,5 @@ public class Mage extends AbstractCharacter {
         this.setWarScream("Abracadabra");
         this.setAttributes("le");
         this.setClass("Mage");
-
     }
 }
-
-
-
-
-
-
-
-
-    /*public String toString() {
-        String str = "Abracadabra je suis le Mage " + super.toString();
-        return str;
-    }*/
-
-    /*public void declaremage1() {
-        System.out.println("Abracadabra je suis le Mage Joueur " + "1" + " niveau " + getLevel() + " je possède " + getLife() + " de vitalité, " + getStrength() + " de force, " + getAgility() + " d'agilité et " + getIntelligence() + " d'intelligence !");
-    }
-
-    public void declareRogue2() {
-        System.out.println("Abracadabra je suis le Mage Joueur " + "2" + " niveau " + getLevel() + " je possède " + getLife() + " de vitalité, " + getStrength() + " de force, " + getAgility() + " d'agilité et " + getIntelligence() + " d'intelligence !");
-    }*/
-

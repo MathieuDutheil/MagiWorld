@@ -5,7 +5,6 @@ public class Rogue extends AbstractCharacter {
         this.setWarScream("Mouahahaha");
         this.setAttributes("le");
         this.setClass("Rôdeur");
-
     }
 }
 

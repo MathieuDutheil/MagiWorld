@@ -9,20 +9,20 @@ abstract class AbstractCharacter {
     private String Class;
     private String Player;
     private String Attributes;
-    private static int numPlayer = 0;
+    private static int nbPlayers = 0;
 
 
     public AbstractCharacter(int strength, int agility, int intelligence) {
     //   if (strength < 0 || strength > 100 || agility < 0 || agility > 100 || intelligence < 0 || intelligence > 100)
     //   throw
     //   else {
-        numPlayer++;
+        nbPlayers++;
         this.strength = strength;
         this.agility = agility;
         this.intelligence = intelligence;
         this.level = strength + agility + intelligence;
         this.life = level * 5;
-        this.Player = "Joueur " + numPlayer;
+        this.Player = "Joueur " + nbPlayers;
     }
 
     @Override
