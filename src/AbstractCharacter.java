@@ -11,9 +11,10 @@ abstract class AbstractCharacter {
     private String Class;
     private String Player;
     private String Attributes;
+    private String BasicAttackName;
+    private String SpecialAttackName;
+
     private static int nbPlayers = 0;
-
-
 
 
     public AbstractCharacter(int strength, int agility, int intelligence) {
@@ -34,12 +35,36 @@ abstract class AbstractCharacter {
         return WarScream + " je suis " + Attributes + " " + Class + " " + Player + " niveau " + level + " je possède " + life + " de vitalité, " + strength + " de force, " + agility + " d'agilité et " + intelligence + " d'intelligence !";
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     public int getStrength() {
         return strength;
     }
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+
+    public int getAgility() {
+        return agility;
+    }
+
+    public void setAgility(int agility) {
+        this.agility = agility;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
     }
 
     public static int getNbPlayers() {
@@ -59,7 +84,25 @@ abstract class AbstractCharacter {
     }
 
 
-    abstract int basicAttack();
+    public void setBasicAttackName(String basicAttackName) {
+        BasicAttackName = basicAttackName;
+    }
 
-    abstract int specialAttack();
+
+    public void setSpecialAttackName(String specialAttackName) {
+        SpecialAttackName = specialAttackName;
+    }
+
+
+    public AbstractCharacter basicAttack(AbstractCharacter contender) {
+
+        System.out.print("Joueur " + (Game.getIndexPlayer() + 1) + " utilise " + BasicAttackName + " et inflige ");
+        return contender;
+    }
+
+    public void specialAttack() {
+        System.out.println("Joueur " + (Game.getIndexPlayer() + 1) + " utilise " + SpecialAttackName);
+    }
+
+
 }

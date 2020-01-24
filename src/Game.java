@@ -5,6 +5,20 @@ public class Game {
     Scanner sc = new Scanner(System.in);
     private final static int MAX_PLAYERS = 2;
     AbstractCharacter[] characterList = new AbstractCharacter[MAX_PLAYERS];
+    private static int indexPlayer = 0;
+    private static int contender;
+
+    public static int getContender() {
+        return contender;
+    }
+
+    public void setContender(int contender) {
+        this.contender = contender;
+    }
+
+    public static int getIndexPlayer() {
+        return indexPlayer;
+    }
 
     public void createCharacters() {
 
@@ -42,21 +56,37 @@ public class Game {
                     characterList[AbstractCharacter.getNbPlayers()] = new Mage(strenghtCharacter, agilityCharacter, intelligenceCharacter);
             }
             System.out.println(characterList[(AbstractCharacter.getNbPlayers() - 1)]);
-            System.out.println(AbstractCharacter.getNbPlayers());
+
 
         } while (AbstractCharacter.getNbPlayers() < MAX_PLAYERS);
 
     }
 
-    private int indexPlayer;
-    public void startFight () {
-        characterList[indexPlayer].basicAttack();
+    public void startFight() {
+        do {
 
+
+            if (indexPlayer == (0)) {
+                setContender(indexPlayer + 1);
+            } else {
+                setContender(0);
+            }
+            int whichAttack = askAnInt("Joueur " + (indexPlayer + 1) + " (" + characterList[indexPlayer].getLife() + " Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque spéciale)", 1, 2);
+
+            if (whichAttack == 1) {
+                characterList[indexPlayer].basicAttack(characterList[contender]);
+
+            } else {
+                characterList[indexPlayer].specialAttack();
+
+            }
+
+            indexPlayer++;
+            indexPlayer = indexPlayer % MAX_PLAYERS;
+
+        } while (characterList[getContender()].getLife() > 0);
 
     }
-
-
-
 
 
     public int askAnInt(String intro, int lowLimit, int highLimit) {
@@ -65,11 +95,11 @@ public class Game {
         boolean isNonNumericalOutput;
         do {
             try {
-                isNonNumericalOutput=false;
+                isNonNumericalOutput = false;
                 System.out.println(intro);
                 carac = sc.nextInt();
                 if (carac < lowLimit || carac > highLimit) {
-                    System.out.println("Attention cette caractéristique du personnage doit être comprise entre " + lowLimit + " et " + highLimit + ", recommencez la saisie.");
+                    System.out.println("Attention la saisie attendue doit être comprise entre " + lowLimit + " et " + highLimit + ", recommencez la saisie.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Merci de saisir un chiffre.");

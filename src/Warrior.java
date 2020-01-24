@@ -5,18 +5,26 @@ public class Warrior extends AbstractCharacter {
         this.setWarScream("Woarg");
         this.setAttributes("le");
         this.setClass("Guerrier");
+        this.setBasicAttackName("Coup d'Épée");
+        this.setSpecialAttackName("Coup de Rage");
+
+    }
+
+
+    @Override
+    public AbstractCharacter basicAttack(AbstractCharacter contender) {
+        super.basicAttack(contender);
+        contender.setLife(contender.getLife() - this.getStrength());
+        System.out.println(this.getStrength() + " dommages.");
+        System.out.println("Joueur " + (Game.getContender() + 1) + " perd " + this.getStrength() + " points de vie");
+        return contender;
     }
 
     @Override
-    public int basicAttack() {
-        return this.getStrength();
-    }
+    public void specialAttack() {
+        int rageSmash = (this.getStrength() * 2);
+        this.setStrength((this.getStrength() / 2));
 
-    @Override
-    public int specialAttack() {
-        int rageSmash = (this.getStrength()*2);
-        this.setStrength((getStrength()/2));
 
-        return (rageSmash);
     }
 }
