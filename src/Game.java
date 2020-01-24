@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Game {
     Scanner sc = new Scanner(System.in);
-    private final static int maxPlayers = 2;
-    AbstractCharacter[] characterList = new AbstractCharacter[maxPlayers];
+    private final static int MAX_PLAYERS = 2;
+    AbstractCharacter[] characterList = new AbstractCharacter[MAX_PLAYERS];
 
     public void createCharacters() {
 
@@ -44,7 +44,7 @@ public class Game {
             System.out.println(characterList[(AbstractCharacter.getNbPlayers() - 1)]);
             System.out.println(AbstractCharacter.getNbPlayers());
 
-        } while (AbstractCharacter.getNbPlayers() < maxPlayers);
+        } while (AbstractCharacter.getNbPlayers() < MAX_PLAYERS);
 
     }
 
