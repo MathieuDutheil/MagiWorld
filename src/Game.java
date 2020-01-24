@@ -72,7 +72,7 @@ public class Game {
                 characterList[indexPlayer].basicAttack(characterList[contender]);
 
             } else {
-                characterList[indexPlayer].specialAttack();
+                characterList[indexPlayer].specialAttack(characterList[contender]);
 
             }
 

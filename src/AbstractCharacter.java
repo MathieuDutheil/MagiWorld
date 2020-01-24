@@ -47,8 +47,9 @@ abstract class AbstractCharacter {
         return contender;
     }
 
-    public void specialAttack() {
-        System.out.println("Joueur " + (Game.getIndexPlayer() + 1) + " utilise " + SpecialAttackName);
+    public AbstractCharacter specialAttack(AbstractCharacter contender) {
+        System.out.print("Joueur " + (Game.getIndexPlayer() + 1) + " utilise " + SpecialAttackName);
+        return contender;
     }
 
 

@@ -13,16 +13,18 @@ public class Rogue extends AbstractCharacter {
     @Override
     public AbstractCharacter basicAttack(AbstractCharacter contender) {
         super.basicAttack(contender);
-        contender.setLife(contender.getLife() - this.getAgility());
         System.out.println(this.getAgility() + " dommages.");
+        contender.setLife(contender.getLife() - this.getAgility());
         System.out.println("Joueur " + (Game.getContender() + 1) + " perd " + this.getAgility() + " points de vie");
         return contender;
     }
 
     @Override
-    public void specialAttack() {
-        this.setAgility((this.getAgility()) + (this.getLevel() / 2));
-
+    public AbstractCharacter specialAttack(AbstractCharacter contender) {
+        super.specialAttack(contender);
+        System.out.println(" et gagne " + (this.getLife() / 2) + " d'agilité.");
+        this.setAgility((getAgility() + this.getLife() / 2));
+        return contender;
     }
 }
 
