@@ -6,4 +6,17 @@ public class Warrior extends AbstractCharacter {
         this.setAttributes("le");
         this.setClass("Guerrier");
     }
+
+    @Override
+    public int basicAttack() {
+        return this.getStrength();
+    }
+
+    @Override
+    public int specialAttack() {
+        int rageSmash = (this.getStrength()*2);
+        this.setStrength((getStrength()/2));
+
+        return (rageSmash);
+    }
 }

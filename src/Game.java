@@ -48,6 +48,17 @@ public class Game {
 
     }
 
+    private int indexPlayer;
+    public void startFight () {
+        characterList[indexPlayer].basicAttack();
+
+
+    }
+
+
+
+
+
     public int askAnInt(String intro, int lowLimit, int highLimit) {
 
         int carac = 0;
@@ -73,6 +84,7 @@ public class Game {
 
     public void runGame() {
         createCharacters();
+        startFight();
 
     }
 

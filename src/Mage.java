@@ -6,4 +6,16 @@ public class Mage extends AbstractCharacter {
         this.setAttributes("le");
         this.setClass("Mage");
     }
+
+    @Override
+    int basicAttack() {
+
+        return 0;
+    }
+
+    @Override
+    int specialAttack() {
+
+        return 0;
+    }
 }

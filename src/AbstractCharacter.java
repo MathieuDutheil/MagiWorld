@@ -17,9 +17,9 @@ abstract class AbstractCharacter {
 
 
     public AbstractCharacter(int strength, int agility, int intelligence) {
-    //   if (strength < 0 || strength > 100 || agility < 0 || agility > 100 || intelligence < 0 || intelligence > 100)
-    //   throw
-    //   else {
+        //   if (strength < 0 || strength > 100 || agility < 0 || agility > 100 || intelligence < 0 || intelligence > 100)
+        //   throw
+        //   else {
         nbPlayers++;
         this.strength = strength;
         this.agility = agility;
@@ -32,6 +32,14 @@ abstract class AbstractCharacter {
     @Override
     public String toString() {
         return WarScream + " je suis " + Attributes + " " + Class + " " + Player + " niveau " + level + " je possède " + life + " de vitalité, " + strength + " de force, " + agility + " d'agilité et " + intelligence + " d'intelligence !";
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
     public static int getNbPlayers() {
@@ -50,12 +58,8 @@ abstract class AbstractCharacter {
         Attributes = attributes;
     }
 
+
+    abstract int basicAttack();
+
+    abstract int specialAttack();
 }
-
-    /*public void basicAttack() {
-
-    }
-
-    public void specialAttack() {
-
-    }*/

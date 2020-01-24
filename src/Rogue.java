@@ -6,6 +6,18 @@ public class Rogue extends AbstractCharacter {
         this.setAttributes("le");
         this.setClass("Rôdeur");
     }
+
+    @Override
+    int basicAttack() {
+
+        return 0;
+    }
+
+    @Override
+    int specialAttack() {
+
+        return 0;
+    }
 }
 
 
