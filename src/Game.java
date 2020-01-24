@@ -3,30 +3,27 @@ import java.util.Scanner;
 
 public class Game {
     Scanner sc = new Scanner(System.in);
-    private static int nbPlayers = 0;
-    private final static int maxPlayers = 4;
+    private final static int maxPlayers = 2;
 
 
     public void createCharacters() {
-
+        AbstractCharacter[] characterList = new AbstractCharacter[maxPlayers];
         int levelCharacter;
         int strenghtCharacter;
         int agilityCharacter;
         int intelligenceCharacter;
         int classCharacter;
 
-
-        for (nbPlayers = 0; nbPlayers < maxPlayers; nbPlayers++) {
+        //  for (AbstractCharacter.getNbPlayers(); AbstractCharacter.getNbPlayers() < maxPlayers; AbstractCharacter.getNbPlayers()) {
+        do {
 
             do {
-                int player = nbPlayers + 1;
-                System.out.println("Création du personnage du joueur " + player);
-
-                classCharacter = declareCarac("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)", 1, 3);
-                levelCharacter = declareCarac("Niveau du personnage ?", 1, 100);
-                strenghtCharacter = declareCarac("Force du personnage ?", 0, 100);
-                agilityCharacter = declareCarac("Agilité du personnage ?", 0, 100);
-                intelligenceCharacter = declareCarac("Intelligence du personnage ?", 0, 100);
+                System.out.println("Création du personnage du joueur " + (AbstractCharacter.getNbPlayers() + 1));
+                classCharacter = askAnInt("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)", 1, 3);
+                levelCharacter = askAnInt("Niveau du personnage ?", 1, 100);
+                strenghtCharacter = askAnInt("Force du personnage ?", 0, 100);
+                agilityCharacter = askAnInt("Agilité du personnage ?", 0, 100);
+                intelligenceCharacter = askAnInt("Intelligence du personnage ?", 0, 100);
 
                 if (levelCharacter != strenghtCharacter + agilityCharacter + intelligenceCharacter) {
                     System.out.println("Attention le total force + agilité + intelligence doit être égal au niveau du joueur, recommencez la saisie.");
@@ -34,25 +31,24 @@ public class Game {
             } while (levelCharacter != strenghtCharacter + agilityCharacter + intelligenceCharacter);
 
 
-            AbstractCharacter[] characterList = new AbstractCharacter[maxPlayers];
-
             switch (classCharacter) {
                 case 1:
-                    characterList[nbPlayers] = new Warrior(strenghtCharacter, agilityCharacter, intelligenceCharacter);
+                    characterList[AbstractCharacter.getNbPlayers()] = new Warrior(strenghtCharacter, agilityCharacter, intelligenceCharacter);
                     break;
                 case 2:
-                    characterList[nbPlayers] = new Rogue(strenghtCharacter, agilityCharacter, intelligenceCharacter);
+                    characterList[AbstractCharacter.getNbPlayers()] = new Rogue(strenghtCharacter, agilityCharacter, intelligenceCharacter);
                     break;
                 case 3:
-                    characterList[nbPlayers] = new Mage(strenghtCharacter, agilityCharacter, intelligenceCharacter);
+                    characterList[AbstractCharacter.getNbPlayers()] = new Mage(strenghtCharacter, agilityCharacter, intelligenceCharacter);
             }
-            System.out.println(characterList[nbPlayers]);
+            System.out.println(characterList[(AbstractCharacter.getNbPlayers() - 1)]);
+            System.out.println(AbstractCharacter.getNbPlayers());
 
-        }
+        } while (AbstractCharacter.getNbPlayers() < maxPlayers);
 
     }
 
-    public int declareCarac(String intro, int lowLimit, int highLimit) {
+    public int askAnInt(String intro, int lowLimit, int highLimit) {
 
         int carac = 0;
         try {

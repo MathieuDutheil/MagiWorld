@@ -1,3 +1,5 @@
+
+
 abstract class AbstractCharacter {
 
     private int level;
@@ -10,6 +12,8 @@ abstract class AbstractCharacter {
     private String Player;
     private String Attributes;
     private static int nbPlayers = 0;
+
+
 
 
     public AbstractCharacter(int strength, int agility, int intelligence) {
@@ -28,6 +32,10 @@ abstract class AbstractCharacter {
     @Override
     public String toString() {
         return WarScream + " je suis " + Attributes + " " + Class + " " + Player + " niveau " + level + " je possède " + life + " de vitalité, " + strength + " de force, " + agility + " d'agilité et " + intelligence + " d'intelligence !";
+    }
+
+    public static int getNbPlayers() {
+        return nbPlayers;
     }
 
     protected void setWarScream(String warScream) {
