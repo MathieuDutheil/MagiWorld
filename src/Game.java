@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class Game {
     Scanner sc = new Scanner(System.in);
     private final static int maxPlayers = 2;
-
+    AbstractCharacter[] characterList = new AbstractCharacter[maxPlayers];
 
     public void createCharacters() {
-        AbstractCharacter[] characterList = new AbstractCharacter[maxPlayers];
+
         int levelCharacter;
         int strenghtCharacter;
         int agilityCharacter;
@@ -51,18 +51,23 @@ public class Game {
     public int askAnInt(String intro, int lowLimit, int highLimit) {
 
         int carac = 0;
-        try {
-            do {
+        boolean isNonNumericalOutput;
+        do {
+            try {
+                isNonNumericalOutput=false;
                 System.out.println(intro);
                 carac = sc.nextInt();
                 if (carac < lowLimit || carac > highLimit) {
                     System.out.println("Attention cette caractéristique du personnage doit être comprise entre " + lowLimit + " et " + highLimit + ", recommencez la saisie.");
                 }
-            } while (carac < lowLimit || carac > highLimit);
-        } catch (InputMismatchException e) {
-            System.out.println("Merci de saisir un chiffre.");
-            sc.nextLine();
-        }
+            } catch (InputMismatchException e) {
+                System.out.println("Merci de saisir un chiffre.");
+                isNonNumericalOutput = true;
+                sc.nextLine();
+            }
+
+        } while (carac < lowLimit || carac > highLimit || isNonNumericalOutput);
+
         return carac;
     }
 
