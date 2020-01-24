@@ -2,6 +2,8 @@
 
 abstract class AbstractCharacter {
 
+    // VARIABLES
+
     private int level;
     private int life;
     private int strength;
@@ -13,9 +15,10 @@ abstract class AbstractCharacter {
     private String Attributes;
     private String BasicAttackName;
     private String SpecialAttackName;
-
     private static int nbPlayers = 0;
 
+
+    // BUILDER
 
     public AbstractCharacter(int strength, int agility, int intelligence) {
         //   if (strength < 0 || strength > 100 || agility < 0 || agility > 100 || intelligence < 0 || intelligence > 100)
@@ -30,10 +33,26 @@ abstract class AbstractCharacter {
         this.Player = "Joueur " + nbPlayers;
     }
 
+
+    // METHOD
+
     @Override
     public String toString() {
         return WarScream + " je suis " + Attributes + " " + Class + " " + Player + " niveau " + level + " je possède " + life + " de vitalité, " + strength + " de force, " + agility + " d'agilité et " + intelligence + " d'intelligence !";
     }
+
+    public AbstractCharacter basicAttack(AbstractCharacter contender) {
+
+        System.out.print("Joueur " + (Game.getIndexPlayer() + 1) + " utilise " + BasicAttackName + " et inflige ");
+        return contender;
+    }
+
+    public void specialAttack() {
+        System.out.println("Joueur " + (Game.getIndexPlayer() + 1) + " utilise " + SpecialAttackName);
+    }
+
+
+    // GETTERS AND SETTERS
 
     public int getLevel() {
         return level;
@@ -83,26 +102,12 @@ abstract class AbstractCharacter {
         Attributes = attributes;
     }
 
-
     public void setBasicAttackName(String basicAttackName) {
         BasicAttackName = basicAttackName;
     }
 
-
     public void setSpecialAttackName(String specialAttackName) {
         SpecialAttackName = specialAttackName;
     }
-
-
-    public AbstractCharacter basicAttack(AbstractCharacter contender) {
-
-        System.out.print("Joueur " + (Game.getIndexPlayer() + 1) + " utilise " + BasicAttackName + " et inflige ");
-        return contender;
-    }
-
-    public void specialAttack() {
-        System.out.println("Joueur " + (Game.getIndexPlayer() + 1) + " utilise " + SpecialAttackName);
-    }
-
 
 }
