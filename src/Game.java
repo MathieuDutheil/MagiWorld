@@ -2,23 +2,18 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
+
+
+    // VARIABLES
+
     Scanner sc = new Scanner(System.in);
     private final static int MAX_PLAYERS = 2;
     AbstractCharacter[] characterList = new AbstractCharacter[MAX_PLAYERS];
     private static int indexPlayer = 0;
     private static int contender;
 
-    public static int getContender() {
-        return contender;
-    }
 
-    public void setContender(int contender) {
-        this.contender = contender;
-    }
-
-    public static int getIndexPlayer() {
-        return indexPlayer;
-    }
+    // METHOD
 
     public void createCharacters() {
 
@@ -116,6 +111,21 @@ public class Game {
         createCharacters();
         startFight();
 
+    }
+
+
+    // GETTERS & SETTERS
+
+    public static int getContender() {
+        return contender;
+    }
+
+    public void setContender(int contender) {
+        this.contender = contender;
+    }
+
+    public static int getIndexPlayer() {
+        return indexPlayer;
     }
 
 }
